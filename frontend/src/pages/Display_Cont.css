@@ -1,0 +1,64 @@
+/* #0d0d0d */
+
+body {
+  overflow: hidden;
+}
+
+.Cont-class {
+  flex: 1; /* take remaining space */
+  width: 100%;
+  min-height: 100%;
+  /* background-color: #0d0d0d; */
+  background: linear-gradient(180deg, #1b1b1b 0%, #121212 35%, #0d0d0d 100%);
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+.Trend-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Popular-class {
+  margin-top: 20px;
+}
+
+.Popular-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Popular-alb {
+  margin-top: 20px;
+}
+
+.alb-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Popular-rad {
+  margin-top: 20px;
+}
+
+.rad-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Feat-chart {
+  margin-top: 20px;
+}
+
+.Feat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

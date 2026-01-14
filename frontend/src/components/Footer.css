@@ -1,0 +1,29 @@
+.Foot-class {
+  display: flex;
+  margin-top: 340px;
+  justify-content: space-evenly;
+}
+
+.Company li {
+  list-style: none;
+  cursor: pointer;
+  margin: 6px;
+}
+
+.Communities li {
+  list-style: none;
+  cursor: pointer;
+  margin: 6px;
+}
+
+.Useful li {
+  list-style: none;
+  cursor: pointer;
+  margin: 6px;
+}
+
+.Spot-Plan li {
+  list-style: none;
+  cursor: pointer;
+  margin: 6px;
+}

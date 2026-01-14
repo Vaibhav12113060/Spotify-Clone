@@ -1,0 +1,51 @@
+.Art-class {
+  background-color: transparent;
+  border-radius: 10px;
+  width: 220px;
+  margin-top: 14px;
+  margin-left: 14px;
+}
+
+.Art-class:hover {
+  background-color: #333333;
+}
+
+.Art-class:hover h3 {
+  color: #ffffff;
+}
+
+.Art-class:hover h5 {
+  color: #b3b3b3;
+}
+.Art-class img {
+  height: 220px;
+  width: 220px;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 14px;
+  border-radius: 150px;
+  cursor: pointer;
+}
+
+.Art-class h3 {
+  margin: 4px;
+  padding-top: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  cursor: pointer;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.Art-class h5 {
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-bottom: 14px;
+  font-weight: lighter;
+  cursor: pointer;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}

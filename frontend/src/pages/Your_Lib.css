@@ -1,0 +1,120 @@
+* {
+  color: white;
+}
+
+.Lib-class {
+  background-color: #0d0d0d;
+  width: 390px;
+  height: 100%;
+  margin: 20px;
+  border-radius: 10px;
+  padding-left: 18px;
+  padding-top: 22px;
+  padding-right: 22px;
+  box-sizing: border-box;
+}
+
+.Your-Lib-class {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.Your-Lib-class img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.Create-Play-class {
+  background-color: #262626;
+  padding: 12px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+.Create-Play-class p {
+  font-size: small;
+  font-weight: bold;
+  padding-top: 12px;
+}
+
+.Create-Play-class button {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  margin-top: 25px;
+  color: black;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.brow-pod-class {
+  background-color: #262626;
+  padding: 12px;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+.brow-pod-class p {
+  font-size: small;
+  font-weight: bold;
+  padding-top: 12px;
+}
+
+.brow-pod-class button {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 25px;
+  color: black;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.Terms-class {
+  padding-top: 200px;
+  font-size: 12px;
+}
+
+.Term1 {
+  gap: 12px;
+  list-style: none;
+  cursor: pointer;
+}
+.Term2 {
+  padding-top: 10px;
+  gap: 12px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.Lang-class {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: 100px;
+  height: 40px;
+
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+
+  color: #ffffff;
+  cursor: pointer;
+  padding-left: 55px;
+  padding-right: 55px;
+  font-size: 15px;
+  font-weight: bold;
+  box-sizing: border-box;
+  margin-top: 52px;
+}

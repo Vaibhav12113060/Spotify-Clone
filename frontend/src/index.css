@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  background-color: black;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  overflow: hidden; /* IMPORTANT */
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto; /* ONLY THIS SCROLLS */
+  padding: 24px;
+}

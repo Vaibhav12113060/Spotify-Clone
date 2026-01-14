@@ -1,0 +1,13 @@
+.Art-data {
+  display: flex;
+  flex-direction: row; /* single row */
+  overflow-x: auto; /* horizontal scroll */
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+
+.Art-data > * {
+  flex-shrink: 0;
+}
