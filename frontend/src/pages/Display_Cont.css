@@ -1,14 +1,12 @@
-/* #0d0d0d */
-
 body {
   overflow: hidden;
 }
 
 .Cont-class {
-  flex: 1; /* take remaining space */
+  flex: 1;
   width: 100%;
   min-height: 100%;
-  /* background-color: #0d0d0d; */
+
   background: linear-gradient(180deg, #1b1b1b 0%, #121212 35%, #0d0d0d 100%);
   box-sizing: border-box;
   padding-top: 20px;

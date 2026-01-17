@@ -1,7 +1,7 @@
-/* ================= MUSIC CARD ================= */
+/* ================= ALBUM CARD ================= */
 
-.music-bar {
-  position: relative;
+.Album-card {
+  position: relative; /* REQUIRED for play button */
   background-color: transparent;
   border-radius: 10px;
   width: 220px;
@@ -11,13 +11,13 @@
   transition: background-color 0.2s ease;
 }
 
-.music-bar:hover {
+.Album-card:hover {
   background-color: #333333;
 }
 
 /* ================= ALBUM IMAGE ================= */
 
-.album-img {
+.Album-img {
   height: 220px;
   width: 220px;
   padding: 14px;
@@ -27,27 +27,20 @@
 
 /* ================= TEXT ================= */
 
-.music-info {
-  padding: 0 12px 12px;
-}
-
-.music-info h3 {
+.Album-card h3 {
+  margin: 4px;
+  padding: 10px 12px 12px;
   font-size: 16px;
   color: #ffffff;
-  margin: 6px 0 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
-.music-info h5 {
+.Album-card p {
+  padding: 0 14px 14px;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: lighter;
   color: #b3b3b3;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 /* ================= PLAY BUTTON ================= */
@@ -75,13 +68,18 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
+/* Play icon inside button */
 .play-btn img {
   width: 18px;
   height: 18px;
+  padding: 0;
+  object-fit: contain;
   margin-left: 2px;
 }
 
-.music-bar:hover .play-btn {
+/* ================= HOVER EFFECT ================= */
+
+.Album-card:hover .play-btn {
   opacity: 1;
   transform: translateY(0);
 }

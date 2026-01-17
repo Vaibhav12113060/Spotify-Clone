@@ -1,51 +1,88 @@
+/* ================= ARTIST CARD ================= */
+
 .Art-class {
+  position: relative; /* Needed for play button */
   background-color: transparent;
   border-radius: 10px;
   width: 220px;
   margin-top: 14px;
   margin-left: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .Art-class:hover {
   background-color: #333333;
 }
 
-.Art-class:hover h3 {
-  color: #ffffff;
-}
+/* ================= ARTIST IMAGE ================= */
 
-.Art-class:hover h5 {
-  color: #b3b3b3;
-}
-.Art-class img {
+.Art-img {
   height: 220px;
   width: 220px;
-  padding-top: 14px;
-  padding-left: 14px;
-  padding-right: 14px;
-  border-radius: 150px;
-  cursor: pointer;
+  padding: 14px;
+  border-radius: 50%; /* Circular artist image */
+  object-fit: cover;
 }
+
+/* ================= TEXT ================= */
 
 .Art-class h3 {
   margin: 4px;
-  padding-top: 10px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 12px;
-  cursor: pointer;
+  padding: 10px 12px 12px;
+  font-size: 16px;
+  color: #ffffff;
   word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
 }
 
 .Art-class h5 {
-  padding-left: 14px;
-  padding-right: 14px;
-  padding-bottom: 14px;
+  padding: 0 14px 14px;
+  font-size: 14px;
   font-weight: lighter;
+  color: #b3b3b3;
+}
+
+/* ================= PLAY BUTTON ================= */
+
+.play-btn {
+  position: absolute;
+  right: 20px;
+  top: 170px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: #1db954;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   cursor: pointer;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Play icon */
+.play-btn img {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  object-fit: contain;
+  margin-left: 2px;
+}
+
+/* ================= HOVER EFFECT ================= */
+
+.Art-class:hover .play-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
 }

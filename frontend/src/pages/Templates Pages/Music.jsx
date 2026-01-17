@@ -2,13 +2,24 @@ import "./Music.css";
 import React from "react";
 import { assets } from "../../assets/assets";
 
-const Music = (props) => {
+const Music = ({ img, song_name, artist_name }) => {
   return (
-    <div className="Music-class">
-      <img src={props.img} alt="Music Image 1"></img>
+    <div className="music-bar">
+      {/* Album Image */}
+      <img className="album-img" src={img} alt={song_name} />
 
-      <h3>{props.song_name}</h3>
-      <h5>{props.artist_name}</h5>
+      {/* Song Info */}
+      <div className="music-info">
+        <h3 title={song_name}>{song_name}</h3>
+
+        {/* Join artists array safely */}
+        <h5 title={artist_name.join(", ")}>{artist_name.join(", ")}</h5>
+      </div>
+
+      {/* Play Button */}
+      <button className="play-btn">
+        <img src={assets.play_icon} alt="Play" />
+      </button>
     </div>
   );
 };

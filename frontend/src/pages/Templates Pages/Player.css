@@ -1,0 +1,180 @@
+/* ================= PLAYER WRAPPER ================= */
+
+.player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 75px;
+
+  background-color: #181818;
+  border-top: 1px solid #282828;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20px;
+  color: white;
+}
+
+/* ================= LEFT ================= */
+
+.player-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 25%;
+}
+
+.song-img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.song-info h4 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.song-info p {
+  font-size: 12px;
+  color: #b3b3b3;
+  margin: 2px 0 0;
+}
+
+.icon {
+  width: 18px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.icon:hover {
+  opacity: 1;
+}
+
+/* ================= CENTER ================= */
+
+.player-center {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.controls img {
+  width: 16px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.controls img:hover {
+  opacity: 1;
+}
+
+.controls .play-btn {
+  width: 34px;
+  opacity: 1;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.progress span {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.progress input {
+  flex: 1;
+  height: 4px;
+  cursor: pointer;
+}
+
+/* ================= RIGHT ================= */
+
+.player-right {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.player-right img {
+  width: 16px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.player-right img:hover {
+  opacity: 1;
+}
+
+.player-right input {
+  width: 100px;
+  height: 4px;
+  cursor: pointer;
+}
+
+/* ================= RANGE STYLE ================= */
+
+input[type="range"] {
+  appearance: none; /* Standard */
+  -webkit-appearance: none; /* Chrome, Safari */
+  background: #535353;
+  height: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.progress .player-right input[type="range"] {
+  appearance: none; /* Standard */
+  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  -moz-appearance: none; /* Firefox */
+
+  width: 100%;
+  height: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: transparent; /* IMPORTANT: gradient comes from inline style */
+}
+
+/* Chrome / Edge / Safari */
+.progress .player-right input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Firefox */
+.progress .player-right input[type="range"]::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: white;
+}

@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import "./navbar.css";
 import Your_Lib from "../pages/Your_Lib";
 import Display_Cont from "../pages/Display_Cont";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -40,8 +41,13 @@ const Navbar = () => {
             <p>Install App</p>
           </div>
 
-          <p className="signup">Sign up</p>
-          <button className="login-btn">Log in</button>
+          <Link to="/signup" className="signup">
+            Sign up
+          </Link>
+
+          <Link to="/login" className="login-btn">
+            Log in
+          </Link>
         </div>
       </div>
     </>

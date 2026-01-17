@@ -51,6 +51,12 @@ import Darshan from "./Darshan.jpg";
 import Sunidhi from "./Sunidhi.jpg";
 import Javed from "./Javed.jpg";
 import Diljeet from "./Diljeet.jpg";
+import Dangal from "./Dangal.jpg";
+import Avtar from "./Avtar.jpg";
+import Kick from "./Kick.jpg";
+import Rocky from "./Rocky.jpg";
+import google from "./Google.jpg";
+import apple from "./apple.jpg";
 
 export const assets = {
   bell_icon,
@@ -80,6 +86,8 @@ export const assets = {
   spotify_logo,
   clock_icon,
   globe_icon,
+  google,
+  apple,
 };
 
 export const albumsData = [
@@ -153,13 +161,44 @@ export const Artist_data = [
   },
 ];
 
+export const Album_data = [
+  {
+    id: 0,
+    name: "Dangal",
+    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+    image: Dangal,
+    bgColor: "#2a4365",
+  },
+  {
+    id: 1,
+    name: "Kick",
+    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+    image: Kick,
+    bgColor: "#22543d",
+  },
+  {
+    id: 2,
+    name: "Avtar",
+    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+    image: Avtar,
+    bgColor: "#742a2a",
+  },
+  {
+    id: 3,
+    name: "Rocky",
+    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+    image: Rocky,
+    bgColor: "#44337a",
+  },
+];
+
 export const songsData = [
   {
     id: 0,
     name: "Kutti Story",
     image: img1,
     file: song1,
-    desc: "Aniruth Ravichander,Thalapathy Vijay",
+    artists: ["Anirudh Ravichander", "Thalapathy Vijay"],
     duration: "5:22",
   },
   {
@@ -167,7 +206,7 @@ export const songsData = [
     name: "VIP Title Song",
     image: img2,
     file: song2,
-    desc: "Anirudh Ravichander",
+    artists: ["Anirudh Ravichander"],
     duration: "2:43",
   },
   {
@@ -175,15 +214,15 @@ export const songsData = [
     name: "Dharala Prabhu Title Track",
     image: img3,
     file: song3,
-    desc: "Anirudh Ravichander",
+    artists: ["Anirudh Ravichander"],
     duration: "3:42",
   },
   {
     id: 3,
-    name: "Hukum-Thalaivar Alappara",
+    name: "Hukum - Thalaivar Alappara",
     image: img4,
     file: song4,
-    desc: "Anirudh Ravichander,Super Subu",
+    artists: ["Anirudh Ravichander", "Super Subu"],
     duration: "3:26",
   },
   {
@@ -191,15 +230,15 @@ export const songsData = [
     name: "Illuminati",
     image: img5,
     file: song5,
-    desc: "Sushin Shyam, Dabzee, Vinayak Sasikumar",
+    artists: ["Sushin Shyam", "Dabzee", "Vinayak Sasikumar"],
     duration: "2:28",
   },
   {
     id: 5,
-    name: "Idhazin Oram-The Innocence of Love",
+    name: "Idhazin Oram - The Innocence of Love",
     image: img6,
     file: song6,
-    desc: "Anirudh Ravichander,Ajesh",
+    artists: ["Anirudh Ravichander", "Ajesh"],
     duration: "3:24",
   },
   {
@@ -207,15 +246,7 @@ export const songsData = [
     name: "Vaathi Coming",
     image: img7,
     file: song1,
-    desc: "Aniruth Ravichander,Thalapathy Vijay",
+    artists: ["Anirudh Ravichander", "Thalapathy Vijay"],
     duration: "3:48",
-  },
-  {
-    id: 7,
-    name: "What a Karavaad",
-    image: img2,
-    file: song2,
-    desc: "Anirudh Ravichander,Dhanush",
-    duration: "4:27",
   },
 ];
