@@ -1,0 +1,131 @@
+.artist-details {
+  padding: 20px;
+  color: white;
+}
+
+.artist-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-color: cadetblue;
+}
+
+.artist-det {
+  display: flex;
+  flex-direction: column;
+}
+
+.artist-det h1 {
+  font-size: 80px;
+}
+
+.artist-det p {
+  font-size: 20px;
+}
+
+.artist-det button {
+  width: 60px;
+  height: 30px;
+  background-color: yellowgreen;
+  cursor: pointer;
+  font-weight: bolder;
+  padding-right: 5px;
+  margin-top: 8px;
+  border-radius: 6px;
+}
+
+.artist-header img {
+  width: 250px;
+  border-radius: 100px;
+  padding: 20px;
+}
+
+.type {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.artist-actions {
+  margin: 20px 0;
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.artist-actions .play {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  padding: 12px;
+  background-color: green;
+  border-radius: 30px;
+}
+
+.artist-actions .play:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(29, 185, 84, 0.5);
+}
+
+.artist-actions .Follow-button {
+  width: 66px;
+  height: 30px;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+  border-width: 0.1px;
+  border-color: white;
+  border-radius: 16px;
+  padding: 6px;
+}
+
+.artist-details .Follow-button:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.artist-song-list {
+  margin-top: 20px;
+}
+
+.song-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.song-row:hover {
+  background: #1f1f1f;
+}
+
+.song-img {
+  width: 45px;
+  border-radius: 5px;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-info .song-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.song-info .song-artists {
+  font-size: 14px;
+  opacity: 0.7;
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.song-info .song-artists:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.duration {
+  opacity: 0.9;
+}

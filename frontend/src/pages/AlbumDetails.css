@@ -1,0 +1,163 @@
+.album-header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: #660000;
+}
+
+.album-header .img-head {
+  width: 260px;
+  height: 260px;
+  border-radius: 16px;
+  padding-left: 12px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.album-info {
+  margin-left: 26px;
+}
+
+.album-info .Name-class {
+  font-size: 100px;
+}
+
+.Icons-Mid {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 15px;
+}
+
+/* PLAY BUTTON */
+.play-Mid {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  background-color: #1db954;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.play-Mid:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(29, 185, 84, 0.5);
+}
+
+/* PLUS BUTTON */
+.plus-Mid {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.plus-Mid:hover {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.song-list {
+  margin-top: 12px;
+}
+
+.song-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  padding-bottom: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.song-row:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.index {
+  width: 24px;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+
+.song-row .play-btn {
+  position: absolute;
+  left: 14px;
+  top: 9.5px;
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  border: none;
+  background-color: #1db954;
+  color: black;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.song-row:hover .play-btn {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.song-row:hover .index {
+  opacity: 0;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+}
+
+.song-name {
+  font-size: 15px;
+  font-weight: bolder;
+  color: white;
+}
+
+.song-name:hover {
+  text-decoration-line: underline;
+  text-decoration-color: white;
+}
+
+.artist {
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+/* Individual artist hover */
+.artist-name {
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.artist-name:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.comma {
+  cursor: default; /* commas are not hoverable */
+}
+
+.duration {
+  margin-left: auto;
+  font-size: 14px;
+  color: #b3b3b3;
+}

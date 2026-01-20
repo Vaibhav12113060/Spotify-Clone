@@ -2,18 +2,15 @@ import "./Albums.css";
 import React from "react";
 import { assets } from "../../assets/assets";
 
-const Albums = (props) => {
+const Albums = ({ img, name, singers, onClick }) => {
   return (
-    <div className="Album-card">
-      {/* Album Image */}
-      <img className="Album-img" src={props.img} alt={props.name} />
+    <div className="Album-card" onClick={onClick}>
+      <img className="Album-img" src={img} alt={name} />
 
-      {/* Album Info */}
-      <h3>{props.name}</h3>
-      <p>{props.singers.join(", ")}</p>
+      <h3>{name}</h3>
+      <p>{singers?.join(", ") || "Unknown Artist"}</p>
 
-      {/* Play Button */}
-      <button className="play-btn">
+      <button className="play-btn" onClick={(e) => e.stopPropagation()}>
         <img src={assets.play_icon} alt="Play" />
       </button>
     </div>

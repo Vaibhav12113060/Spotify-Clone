@@ -90,115 +90,15 @@ export const assets = {
   apple,
 };
 
-export const albumsData = [
-  {
-    id: 0,
-    name: "Top 50 Global",
-    image: img8,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#2a4365",
-  },
-  {
-    id: 1,
-    name: "Top 50 India",
-    image: img9,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#22543d",
-  },
-  {
-    id: 2,
-    name: "Trending India",
-    image: img10,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#742a2a",
-  },
-  {
-    id: 3,
-    name: "Trending Global",
-    image: img16,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#44337a",
-  },
-  {
-    id: 4,
-    name: "Mega Hits,",
-    image: img11,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#234e52",
-  },
-  {
-    id: 5,
-    name: "Happy Favorites",
-    image: img15,
-    desc: "Your weekly update of the most played tracks",
-    bgColor: "#744210",
-  },
-];
-export const Artist_data = [
-  {
-    id: 0,
-    name: "Sunidhi Chauhan",
-    image: Sunidhi,
-    bgColor: "#2a4365",
-  },
-  {
-    id: 1,
-    name: "Darshan Raval",
-    image: Darshan,
-    bgColor: "#22543d",
-  },
-  {
-    id: 2,
-    name: "Javed Ali",
-    image: Javed,
-    bgColor: "#742a2a",
-  },
-  {
-    id: 3,
-    name: "Diljit Dosangn",
-    image: Diljeet,
-    bgColor: "#44337a",
-  },
-];
-
-export const Album_data = [
-  {
-    id: 0,
-    name: "Dangal",
-    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
-    image: Dangal,
-    bgColor: "#2a4365",
-  },
-  {
-    id: 1,
-    name: "Kick",
-    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
-    image: Kick,
-    bgColor: "#22543d",
-  },
-  {
-    id: 2,
-    name: "Avtar",
-    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
-    image: Avtar,
-    bgColor: "#742a2a",
-  },
-  {
-    id: 3,
-    name: "Rocky",
-    singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
-    image: Rocky,
-    bgColor: "#44337a",
-  },
-];
-
+/* ---------------- SONGS ---------------- */
 export const songsData = [
   {
     id: 0,
     name: "Kutti Story",
     image: img1,
     file: song1,
-    artists: ["Anirudh Ravichander", "Thalapathy Vijay"],
+    artists: [0],
+    albumId: 0,
     duration: "5:22",
   },
   {
@@ -206,47 +106,201 @@ export const songsData = [
     name: "VIP Title Song",
     image: img2,
     file: song2,
-    artists: ["Anirudh Ravichander"],
+    artists: [0],
+    albumId: 1,
     duration: "2:43",
   },
   {
     id: 2,
-    name: "Dharala Prabhu Title Track",
+    name: "Dharala Prabhu",
     image: img3,
     file: song3,
-    artists: ["Anirudh Ravichander"],
+    artists: [0],
+    albumId: 0,
     duration: "3:42",
   },
   {
     id: 3,
-    name: "Hukum - Thalaivar Alappara",
+    name: "Hukum",
     image: img4,
     file: song4,
-    artists: ["Anirudh Ravichander", "Super Subu"],
+    artists: [0, 2],
+    albumId: 2,
     duration: "3:26",
   },
-  {
-    id: 4,
-    name: "Illuminati",
-    image: img5,
-    file: song5,
-    artists: ["Sushin Shyam", "Dabzee", "Vinayak Sasikumar"],
-    duration: "2:28",
-  },
-  {
-    id: 5,
-    name: "Idhazin Oram - The Innocence of Love",
-    image: img6,
-    file: song6,
-    artists: ["Anirudh Ravichander", "Ajesh"],
-    duration: "3:24",
-  },
-  {
-    id: 6,
-    name: "Vaathi Coming",
-    image: img7,
-    file: song1,
-    artists: ["Anirudh Ravichander", "Thalapathy Vijay"],
-    duration: "3:48",
-  },
 ];
+
+/* ---------------- ARTISTS ---------------- */
+export const Artist_data = [
+  { id: 0, name: "Anirudh Ravichander", image: Sunidhi },
+  { id: 1, name: "Darshan Raval", image: Darshan },
+  { id: 2, name: "Javed Ali", image: Javed },
+];
+
+/* ---------------- ALBUMS ---------------- */
+export const Album_data = [
+  { id: 0, name: "Dangal", image: Dangal },
+  { id: 1, name: "Kick", image: Kick },
+  { id: 2, name: "Avtar", image: Avtar },
+];
+
+// export const albumsData = [
+//   {
+//     id: 0,
+//     name: "Top 50 Global",
+//     image: img8,
+//     desc: "Your weekly update of the most played tracks",
+//     bgColor: "#2a4365",
+//   },
+//   {
+//     id: 1,
+//     name: "Top 50 India",
+//     image: img9,
+//     desc: "Your weekly update of the most played tracks",
+//     bgColor: "#22543d",
+//   },
+//   {
+//     id: 2,
+//     name: "Trending India",
+//     image: img10,
+//     desc: "Your weekly update of the most played tracks",
+//     bgColor: "#742a2a",
+//   },
+//   {
+//     id: 3,
+//     name: "Trending Global",
+//     image: img16,
+//     desc: "Your weekly update of the most played tracks",
+//     bgColor: "#44337a",
+//   },
+//   {
+//     id: 4,
+//     name: "Mega Hits,",
+//     image: img11,
+//     desc: "Your weekly update of the most played tracks",
+//     bgColor: "#234e52",
+//   },
+//   {
+//     id: 5,
+//     name: "Happy Favorites",
+//     image: img15,
+//     desc: "Your weekly update of the most played tracks",
+//     bgColor: "#744210",
+//   },
+// ];
+// export const Artist_data = [
+//   {
+//     id: 0,
+//     name: "Sunidhi Chauhan",
+//     image: Sunidhi,
+//     bgColor: "#2a4365",
+//   },
+//   {
+//     id: 1,
+//     name: "Darshan Raval",
+//     image: Darshan,
+//     bgColor: "#22543d",
+//   },
+//   {
+//     id: 2,
+//     name: "Javed Ali",
+//     image: Javed,
+//     bgColor: "#742a2a",
+//   },
+//   {
+//     id: 3,
+//     name: "Diljit Dosangn",
+//     image: Diljeet,
+//     bgColor: "#44337a",
+//   },
+// ];
+
+// export const Album_data = [
+//   {
+//     id: 0,
+//     name: "Dangal",
+//     singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+//     image: Dangal,
+//     bgColor: "#2a4365",
+//   },
+//   {
+//     id: 1,
+//     name: "Kick",
+//     singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+//     image: Kick,
+//     bgColor: "#22543d",
+//   },
+//   {
+//     id: 2,
+//     name: "Avtar",
+//     singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+//     image: Avtar,
+//     bgColor: "#742a2a",
+//   },
+//   {
+//     id: 3,
+//     name: "Rocky",
+//     singers: ["Arijit", "Mithoon", "Pritam", "Sunidhi"],
+//     image: Rocky,
+//     bgColor: "#44337a",
+//   },
+// ];
+
+// export const songsData = [
+//   {
+//     id: 0,
+//     name: "Kutti Story",
+//     image: img1,
+//     file: song1,
+//     artists: ["Anirudh Ravichander", "Thalapathy Vijay"],
+//     duration: "5:22",
+//   },
+//   {
+//     id: 1,
+//     name: "VIP Title Song",
+//     image: img2,
+//     file: song2,
+//     artists: ["Anirudh Ravichander"],
+//     duration: "2:43",
+//   },
+//   {
+//     id: 2,
+//     name: "Dharala Prabhu Title Track",
+//     image: img3,
+//     file: song3,
+//     artists: ["Anirudh Ravichander"],
+//     duration: "3:42",
+//   },
+//   {
+//     id: 3,
+//     name: "Hukum - Thalaivar Alappara",
+//     image: img4,
+//     file: song4,
+//     artists: ["Anirudh Ravichander", "Super Subu"],
+//     duration: "3:26",
+//   },
+//   {
+//     id: 4,
+//     name: "Illuminati",
+//     image: img5,
+//     file: song5,
+//     artists: ["Sushin Shyam", "Dabzee", "Vinayak Sasikumar"],
+//     duration: "2:28",
+//   },
+//   {
+//     id: 5,
+//     name: "Idhazin Oram - The Innocence of Love",
+//     image: img6,
+//     file: song6,
+//     artists: ["Anirudh Ravichander", "Ajesh"],
+//     duration: "3:24",
+//   },
+//   {
+//     id: 6,
+//     name: "Vaathi Coming",
+//     image: img7,
+//     file: song1,
+//     artists: ["Anirudh Ravichander", "Thalapathy Vijay"],
+//     duration: "3:48",
+//   },
+// ];
