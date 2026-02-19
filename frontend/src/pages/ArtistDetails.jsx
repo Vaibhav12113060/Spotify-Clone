@@ -3,11 +3,15 @@ import React, { useContext, useState } from "react";
 import { assets, songsData, Artist_data } from "../assets/assets";
 import { PlayerContext } from "../Context/PlayerContext";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const ArtistDetails = ({ artist, songs, onBack }) => {
   if (!artist) return <p>Artist not found</p>;
   const { playSongWithContext } = useContext(PlayerContext);
+  const { currentUser } = useContext(AuthContext);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const [act, setAct] = useState(false); // Logic for follow button logic
   const navigate = useNavigate();
 
   return (
@@ -32,7 +36,18 @@ const ArtistDetails = ({ artist, songs, onBack }) => {
             songs.length > 0 && playSongWithContext(songs[0], songs)
           }
         />
-        <button className="Follow-button">Follow</button>
+        <button
+          onClick={() => {
+            if (!currentUser) {
+              navigate("/login");
+              return;
+            }
+            setAct((prev) => !prev);
+          }}
+          className="Follow-button"
+        >
+          {act === true ? <p>Following</p> : <p>Follow</p>}
+        </button>
       </div>
 
       {/* Song List */}

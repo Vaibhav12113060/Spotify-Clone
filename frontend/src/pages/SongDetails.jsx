@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
 import { assets, Artist_data } from "../assets/assets";
 import { PlayerContext } from "../Context/PlayerContext";
+import { AuthContext } from "../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 import "./AlbumDetails.css"; // Reusing AlbumDetails CSS for consistency
 
 const SongDetails = ({ song, onBack }) => {
   const { playSongWithContext } = useContext(PlayerContext);
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   if (!song) return <p>Song not found</p>;
 
@@ -34,7 +38,15 @@ const SongDetails = ({ song, onBack }) => {
           onClick={() => playSongWithContext(song, [song])}
         >
           <img className="play-Mid" src={assets.play_icon} alt="Play" />
-          <img className="plus-Mid" src={assets.plus_icon} alt="Add" />
+          <img
+            className="plus-Mid"
+            src={assets.plus_icon}
+            alt="Add"
+            onClick={(e) => {
+              e.stopPropagation();
+              !currentUser && navigate("/login");
+            }}
+          />
         </div>
       </div>
 

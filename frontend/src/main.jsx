@@ -5,11 +5,14 @@ import App from "./App.jsx";
 
 import { BrowserRouter } from "react-router-dom";
 import PlayerContextProvider from "./Context/PlayerContext.jsx";
+import AuthContextProvider from "./Context/AuthContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <PlayerContextProvider>
-      <App />
-    </PlayerContextProvider>
+    <AuthContextProvider>
+      <PlayerContextProvider>
+        <App />
+      </PlayerContextProvider>
+    </AuthContextProvider>
   </BrowserRouter>,
 );

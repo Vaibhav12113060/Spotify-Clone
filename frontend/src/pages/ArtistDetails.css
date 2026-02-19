@@ -67,7 +67,8 @@
 }
 
 .artist-actions .Follow-button {
-  width: 66px;
+  /* width: 66px; */
+  width: 88px;
   height: 30px;
   cursor: pointer;
   color: white;
@@ -76,6 +77,8 @@
   border-color: white;
   border-radius: 16px;
   padding: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .artist-details .Follow-button:hover {

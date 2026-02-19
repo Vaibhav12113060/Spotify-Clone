@@ -1,8 +1,25 @@
 import "./Login.css";
 import { assets } from "../assets/assets";
-import React from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const result = login(email, password);
+    if (result.success) {
+      navigate("/");
+    } else {
+      alert(result.message);
+    }
+  };
+
   return (
     <div className="login-container">
       <img className="logo" src={assets.spotify_logo} alt="Spotify Logo" />
@@ -10,9 +27,31 @@ const Login = () => {
       <h1>Welcome back</h1>
 
       <div className="form-box">
-        <label>Email or username</label>
-        <input type="text" />
-        <button className="continue-btn">Continue</button>
+        <form onSubmit={handleLogin}>
+          <label>Email or username</label>
+          <input
+            type="text"
+            placeholder="Email or username"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <label style={{ display: "block", marginTop: "15px" }}>
+            Password
+          </label>
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+
+          <button type="submit" className="continue-btn">
+            Log In
+          </button>
+        </form>
       </div>
 
       <p className="or-text">or</p>
@@ -37,7 +76,8 @@ const Login = () => {
       </div>
 
       <p className="footer-text">
-        Don’t have an account? <span>Sign up</span>
+        Don’t have an account?{" "}
+        <span onClick={() => navigate("/signup")}>Sign up</span>
       </p>
 
       <p className="captcha-text">

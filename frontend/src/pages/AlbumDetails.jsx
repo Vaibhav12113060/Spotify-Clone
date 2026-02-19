@@ -4,10 +4,12 @@ import { songsData, Artist_data } from "../assets/assets";
 import { assets } from "../assets/assets";
 import { PlayerContext } from "../Context/PlayerContext";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/AuthContext";
 
 const AlbumDetails = ({ album, songs, onBack }) => {
   if (!album) return <p>Album not found</p>;
   const { playSongWithContext } = useContext(PlayerContext);
+  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const safeSongs = songs || []; // fallback if songs undefined
@@ -40,7 +42,12 @@ const AlbumDetails = ({ album, songs, onBack }) => {
               playSongWithContext(safeSongs[0], safeSongs)
             }
           />
-          <img className="plus-Mid" src={assets.plus_icon} alt="Add" />
+          <img
+            className="plus-Mid"
+            src={assets.plus_icon}
+            alt="Add"
+            onClick={() => !currentUser && navigate("/login")}
+          />
         </div>
       </div>
 

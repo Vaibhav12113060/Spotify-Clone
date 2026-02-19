@@ -1,5 +1,7 @@
-import { createContext, useEffect, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState, useContext } from "react";
 import { songsData } from "../assets/assets";
+import { AuthContext } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const PlayerContext = createContext();
 
@@ -13,7 +15,14 @@ const PlayerContextProvider = (props) => {
     totalTime: { second: 0, minute: 0 },
   });
 
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const play = () => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
     audioRef.current.play();
     setPlayStatus(true);
   };
@@ -24,6 +33,10 @@ const PlayerContextProvider = (props) => {
   };
 
   const playWithId = async (id) => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
     await setSongs(songsData);
     await setTrack(songsData[id]);
     await audioRef.current.play();
@@ -31,6 +44,10 @@ const PlayerContextProvider = (props) => {
   };
 
   const playSongWithContext = async (song, contextSongs) => {
+    if (!currentUser) {
+      navigate("/login");
+      return;
+    }
     await setSongs(contextSongs);
     await setTrack(song);
     await audioRef.current.play();

@@ -55,7 +55,9 @@ const Display_Cont = () => {
           songs={artistSongs}
           onBack={() => navigate("/")}
         />
+        <div class="line"></div>
         <Footer />
+        <div class="line"></div>
         <div style={{ height: "80px" }}></div>
       </div>
     );
@@ -69,7 +71,9 @@ const Display_Cont = () => {
     return (
       <div>
         <SongDetails song={song} onBack={() => navigate(-1)} />
+        <div class="line"></div>
         <Footer />
+        <div class="line"></div>
         <div style={{ height: "80px" }}></div>
       </div>
     );

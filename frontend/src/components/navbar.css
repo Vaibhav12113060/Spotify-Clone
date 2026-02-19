@@ -124,3 +124,94 @@ body {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* PROFILE DROPDOWN */
+.profile-container {
+  position: relative;
+}
+
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #1ed760; /* Spotify Green */
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #282828;
+  border-radius: 4px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.profile-dropdown p {
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0;
+}
+
+.profile-dropdown p:hover {
+  background-color: #3e3e3e;
+}
+
+.profile-dropdown hr {
+  border: none;
+  border-top: 1px solid #3e3e3e;
+  margin: 5px 0;
+}
+
+/* PROFILE DROPDOWN */
+.profile-container {
+  position: relative;
+}
+
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #1ed760; /* Spotify Green */
+  color: black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #282828;
+  border-radius: 4px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.profile-dropdown p {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.profile-dropdown p:hover {
+  background-color: #3e3e3e;
+}
