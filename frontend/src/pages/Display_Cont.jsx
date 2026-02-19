@@ -5,12 +5,13 @@ import { useParams, useNavigate, useLocation } from "react-router-dom";
 import Music_List_Temp from "./List of Templates/Music_List_Temp";
 import Artist_List_Temp from "./List of Templates/Artist_List_Temp";
 import Album_List_Temp from "./List of Templates/Album_List_Temp";
+import Radio_List_Temp from "./List of Templates/Radio_List_Temp";
+import Featured_List_Temp from "./List of Templates/Featured_List_Temp";
 import AlbumDetails from "./AlbumDetails";
-import { songsData } from "../assets/assets";
-
-import { Album_data } from "../assets/assets";
-import { Artist_data } from "../assets/assets";
+import { songsData, Album_data, Artist_data } from "../assets/assets";
 import ArtistDetails from "./ArtistDetails";
+import SongDetails from "./SongDetails";
+import Footer from "../components/Footer";
 
 const Display_Cont = () => {
   const { id } = useParams();
@@ -24,11 +25,17 @@ const Display_Cont = () => {
     const albumSongs = songsData.filter((song) => song.albumId === albumId);
 
     return (
-      <AlbumDetails
-        album={album}
-        songs={albumSongs}
-        onBack={() => navigate("/")}
-      />
+      <div>
+        <AlbumDetails
+          album={album}
+          songs={albumSongs}
+          onBack={() => navigate("/")}
+        />
+        <div class="line"></div>
+        <Footer />
+        <div class="line"></div>
+        <div style={{ height: "80px" }}></div>
+      </div>
     );
   }
 
@@ -42,11 +49,29 @@ const Display_Cont = () => {
     );
 
     return (
-      <ArtistDetails
-        artist={artist}
-        songs={artistSongs}
-        onBack={() => navigate("/")}
-      />
+      <div>
+        <ArtistDetails
+          artist={artist}
+          songs={artistSongs}
+          onBack={() => navigate("/")}
+        />
+        <Footer />
+        <div style={{ height: "80px" }}></div>
+      </div>
+    );
+  }
+
+  /* SONG PAGE */
+  if (location.pathname.startsWith("/song")) {
+    const songId = Number(id);
+    const song = songsData.find((s) => s.id === songId);
+
+    return (
+      <div>
+        <SongDetails song={song} onBack={() => navigate(-1)} />
+        <Footer />
+        <div style={{ height: "80px" }}></div>
+      </div>
     );
   }
 
@@ -93,7 +118,9 @@ const Display_Cont = () => {
             <h2>Popular radio</h2>
             <p>Show all</p>
           </div>
-          <div className="rad-content">Content Display</div>
+          <div className="rad-content">
+            <Radio_List_Temp />
+          </div>
         </div>
 
         {/* Featured Charts */}
@@ -102,8 +129,15 @@ const Display_Cont = () => {
             <h2>Featured Charts</h2>
             <p>Show all</p>
           </div>
-          <div className="Feat-content">Content Display</div>
+          <div className="Feat-content">
+            <Featured_List_Temp />
+          </div>
         </div>
+
+        <div class="line"></div>
+        <Footer />
+        <div class="line"></div>
+        <div style={{ height: "80px" }}></div>
       </div>
     </div>
   );

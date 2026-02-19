@@ -1,124 +1,66 @@
 import "./Player.css";
-import { assets, songsData } from "../../assets/assets";
-import React, { useEffect, useRef, useState } from "react";
+import { assets } from "../../assets/assets";
+import React, { useContext, useState, useRef, useEffect } from "react";
+import { PlayerContext } from "../../Context/PlayerContext";
 
-const Player = (props) => {
-  /* ---------------- DEFAULT SONG ---------------- */
-  const defaultIndex = props.id ?? 0;
+const Player = () => {
+  const { track, playStatus, play, pause, time, previous, next, audioRef } =
+    useContext(PlayerContext);
 
-  const defaultSong = {
-    name: props.name ?? songsData[defaultIndex].name,
-    desc: props.artist ?? songsData[defaultIndex].desc,
-    image: props.img ?? songsData[defaultIndex].image,
-    file: props.audio ?? songsData[defaultIndex].file,
+  const [volume, setVolume] = useState(1);
+  const [isMute, setIsMute] = useState(false);
+  const prevVolume = useRef(1);
+
+  const changeVolume = (e) => {
+    const vol = parseFloat(e.target.value);
+    setVolume(vol);
+    if (audioRef.current) {
+      audioRef.current.volume = vol;
+    }
+    setIsMute(vol === 0);
   };
 
-  const [currentIndex, setCurrentIndex] = useState(defaultIndex);
-  const [song, setSong] = useState(defaultSong);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(75);
-
-  const prevVolume = useRef(volume);
-
-  /* ---------------- PROGRESS ---------------- */
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-
-  const audioRef = useRef(null);
-
-  /* ---------------- PLAY / PAUSE ---------------- */
-  useEffect(() => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.play().catch(() => {});
-    } else {
-      audioRef.current.pause();
-    }
-  }, [isPlaying]);
-
-  /* Play new song only if already playing */
-  useEffect(() => {
-    if (audioRef.current && isPlaying) {
-      audioRef.current.play().catch(() => {});
-    }
-  }, [song]);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = volume / 100;
-    }
-  }, []);
-
-  /* ---------------- HELPERS ---------------- */
-  const togglePlay = () => setIsPlaying((prev) => !prev);
-
   const toggleMute = () => {
-    if (volume === 0) {
-      setVolume(prevVolume.current);
-      audioRef.current.volume = prevVolume.current / 100;
+    if (isMute) {
+      const restoredVol = prevVolume.current === 0 ? 1 : prevVolume.current;
+      setVolume(restoredVol);
+      if (audioRef.current) audioRef.current.volume = restoredVol;
+      setIsMute(false);
     } else {
       prevVolume.current = volume;
       setVolume(0);
-      audioRef.current.volume = 0;
+      if (audioRef.current) audioRef.current.volume = 0;
+      setIsMute(true);
     }
   };
 
-  const formatTime = (time) => {
-    if (!time || isNaN(time)) return "0:00";
-    const min = Math.floor(time / 60);
-    const sec = Math.floor(time % 60)
-      .toString()
-      .padStart(2, "0");
-    return `${min}:${sec}`;
-  };
-
-  const handleSeek = (e) => {
-    const seekTime = Number(e.target.value);
-    audioRef.current.currentTime = seekTime;
-    setCurrentTime(seekTime);
-  };
-
-  /* Progress percentage for color fill */
-  const progressPercent = duration ? (currentTime / duration) * 100 : 0;
-  const volumePercent = volume;
-
-  /* ---------------- SONG CONTROLS ---------------- */
-  const prevSong = () => {
-    if (currentIndex > 0) {
-      const newIndex = currentIndex - 1;
-      setCurrentIndex(newIndex);
-      setSong(songsData[newIndex]);
-      setCurrentTime(0);
-    }
-  };
-
-  const nextSong = () => {
-    if (currentIndex < songsData.length - 1) {
-      const newIndex = currentIndex + 1;
-      setCurrentIndex(newIndex);
-      setSong(songsData[newIndex]);
-      setCurrentTime(0);
-    }
-  };
-
-  const handleEnded = () => {
-    if (currentIndex < songsData.length - 1) {
-      nextSong();
+  const togglePlay = () => {
+    if (playStatus) {
+      pause();
     } else {
-      setIsPlaying(false);
+      play();
     }
   };
+
+  const seekSong = (e) => {
+    audioRef.current.currentTime = e.target.value;
+  };
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [audioRef]);
 
   return (
     <div className="player">
       {/* LEFT */}
       <div className="player-left">
-        <img className="song-img" src={song.image} alt={song.name} />
+        <img className="song-img" src={track.image} alt={track.name} />
 
         <div className="song-info">
-          <h4>{song.name}</h4>
-          <p>{song.desc}</p>
+          <h4>{track.name}</h4>
+          <p>{track.desc}</p>
         </div>
 
         <img className="icon" src={assets.plus_icon} alt="Favorite" />
@@ -128,39 +70,45 @@ const Player = (props) => {
       <div className="player-center">
         <div className="controls">
           <img src={assets.shuffle_icon} alt="Shuffle" />
-          <img src={assets.prev_icon} alt="Previous" onClick={prevSong} />
+          <img src={assets.prev_icon} alt="Previous" onClick={previous} />
 
           <img
             className="play"
-            src={isPlaying ? assets.pause_icon : assets.play_icon}
+            src={playStatus ? assets.pause_icon : assets.play_icon}
             alt="Play/Pause"
             onClick={togglePlay}
           />
 
-          <img src={assets.next_icon} alt="Next" onClick={nextSong} />
+          <img src={assets.next_icon} alt="Next" onClick={next} />
           <img src={assets.loop_icon} alt="Loop" />
         </div>
 
         {/* PROGRESS BAR */}
         <div className="progress">
-          <span>{formatTime(currentTime)}</span>
+          <span>
+            {time.currentTime.minute}:
+            {time.currentTime.second.toString().padStart(2, "0")}
+          </span>
 
           <input
             type="range"
-            min="0"
-            max={duration}
-            value={currentTime}
-            onChange={handleSeek}
+            min={0}
+            max={time.totalTime.minute * 60 + time.totalTime.second}
+            value={time.currentTime.minute * 60 + time.currentTime.second}
+            onChange={seekSong}
             style={{
-              background: `linear-gradient(
-                to right,
-                #1db954 ${progressPercent}%,
-                #555 ${progressPercent}%
-              )`,
+              background: `linear-gradient(to right, #1db954 ${
+                ((time.currentTime.minute * 60 + time.currentTime.second) /
+                  (time.totalTime.minute * 60 + time.totalTime.second)) *
+                  100 || 0
+              }%, #535353 0%)`,
             }}
           />
 
-          <span>{formatTime(duration)}</span>
+          <span>
+            {time.totalTime.minute}:
+            {time.totalTime.second.toString().padStart(2, "0")}
+          </span>
         </div>
       </div>
 
@@ -171,41 +119,23 @@ const Player = (props) => {
           src={assets.volume_icon}
           alt="Volume"
           onClick={toggleMute}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", opacity: isMute ? 0.5 : 1 }}
         />
-
         <input
           type="range"
-          min="0"
-          max="100"
+          min={0}
+          max={1}
+          step={0.01}
           value={volume}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setVolume(value);
-
-            if (audioRef.current) {
-              audioRef.current.volume = value / 100;
-            }
-          }}
+          onChange={changeVolume}
           style={{
-            background: `linear-gradient(
-                to right,
-                #1db954 ${volumePercent}%,
-                #555 ${volumePercent}%
-              )`,
+            background: `linear-gradient(to right, #1db954 ${volume * 100}%, #535353 0%)`,
           }}
         />
       </div>
 
       {/* AUDIO */}
-      <audio
-        ref={audioRef}
-        src={song.file}
-        preload="metadata"
-        onLoadedMetadata={() => setDuration(audioRef.current.duration)}
-        onTimeUpdate={() => setCurrentTime(audioRef.current.currentTime)}
-        onEnded={handleEnded}
-      />
+      <audio ref={audioRef} src={track.file} preload="auto"></audio>
     </div>
   );
 };

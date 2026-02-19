@@ -1,21 +1,13 @@
-import "./Artist_List_Temp.css";
-import Artist from "../Templates Pages/Artist";
-import { Artist_data, songsData } from "../../assets/assets";
-import { useNavigate } from "react-router-dom";
 import React from "react";
+import Artist from "../Templates Pages/Artist";
+import { Artist_data } from "../../assets/assets";
+import "./Artist_List_Temp.css";
 
 const Artist_List_Temp = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="Art-data">
-      {Artist_data.map((data) => (
-        <Artist
-          key={data.id}
-          img={data.image}
-          artist_name={data.name}
-          onClick={() => navigate(`/artist/${data.id}`)}
-        />
+      {Artist_data.map((item, index) => (
+        <Artist key={index} image={item.image} name={item.name} id={item.id} />
       ))}
     </div>
   );

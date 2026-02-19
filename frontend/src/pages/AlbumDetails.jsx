@@ -1,10 +1,14 @@
 import "./AlbumDetails.css";
-import React from "react";
+import React, { useContext } from "react";
 import { songsData, Artist_data } from "../assets/assets";
 import { assets } from "../assets/assets";
+import { PlayerContext } from "../Context/PlayerContext";
+import { useNavigate } from "react-router-dom";
 
 const AlbumDetails = ({ album, songs, onBack }) => {
   if (!album) return <p>Album not found</p>;
+  const { playSongWithContext } = useContext(PlayerContext);
+  const navigate = useNavigate();
 
   const safeSongs = songs || []; // fallback if songs undefined
 
@@ -27,7 +31,15 @@ const AlbumDetails = ({ album, songs, onBack }) => {
       {/* Album Play/Plus Buttons */}
       <div className="Mid-alb">
         <div className="Icons-Mid">
-          <img className="play-Mid" src={assets.play_icon} alt="Play" />
+          <img
+            className="play-Mid"
+            src={assets.play_icon}
+            alt="Play"
+            onClick={() =>
+              safeSongs.length > 0 &&
+              playSongWithContext(safeSongs[0], safeSongs)
+            }
+          />
           <img className="plus-Mid" src={assets.plus_icon} alt="Add" />
         </div>
       </div>
@@ -38,12 +50,20 @@ const AlbumDetails = ({ album, songs, onBack }) => {
           <p>No songs in this album.</p>
         ) : (
           safeSongs.map((song, index) => (
-            <div className="song-row" key={song.id}>
+            <div
+              className="song-row"
+              key={song.id}
+              onClick={() => navigate(`/song/${song.id}`)}
+              style={{ cursor: "pointer" }}
+            >
               <span className="index">{index + 1}</span>
 
               <button
                 className="play-btn"
-                onClick={() => console.log(`Play song: ${song.name}`)}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  playSongWithContext(song, safeSongs);
+                }}
               >
                 ▶
               </button>

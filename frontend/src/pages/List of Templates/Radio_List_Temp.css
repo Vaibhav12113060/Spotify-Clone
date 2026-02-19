@@ -1,0 +1,9 @@
+.Radio-data {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}

@@ -22,6 +22,7 @@ const Music_List_Temp = () => {
       {trendingSongs.map((data) => (
         <Music
           key={data.id}
+          id={data.id}
           img={data.image}
           song_name={data.name}
           artist_name={getArtistNames(data.artists)}

@@ -1,17 +1,17 @@
 import React from "react";
 import Albums from "../Templates Pages/Albums";
 import { Album_data } from "../../assets/assets";
-import "./Album_List_Temp.css";
+import "./Radio_List_Temp.css";
 
-const Album_List_Temp = () => {
+const Radio_List_Temp = () => {
   return (
-    <div className="Album-data">
+    <div className="Radio-data">
       {Album_data.map((item, index) => (
         <Albums
           key={index}
           image={item.image}
           name={item.name}
-          desc={item.desc}
+          desc="Radio Station"
           id={item.id}
         />
       ))}
@@ -19,4 +19,4 @@ const Album_List_Temp = () => {
   );
 };
 
-export default Album_List_Temp;
+export default Radio_List_Temp;

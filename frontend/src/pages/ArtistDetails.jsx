@@ -1,13 +1,14 @@
 import "./ArtistDetails.css";
-import React from "react";
-
-import { songsData } from "../assets/assets";
-import { Artist_data } from "../assets/assets";
-
-import { assets } from "../assets/assets";
+import React, { useContext, useState } from "react";
+import { assets, songsData, Artist_data } from "../assets/assets";
+import { PlayerContext } from "../Context/PlayerContext";
+import { useNavigate } from "react-router-dom";
 
 const ArtistDetails = ({ artist, songs, onBack }) => {
   if (!artist) return <p>Artist not found</p>;
+  const { playSongWithContext } = useContext(PlayerContext);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="artist-details">
@@ -24,7 +25,13 @@ const ArtistDetails = ({ artist, songs, onBack }) => {
 
       {/* Controls */}
       <div className="artist-actions">
-        <img src={assets.play_icon} className="play" />
+        <img
+          src={assets.play_icon}
+          className="play"
+          onClick={() =>
+            songs.length > 0 && playSongWithContext(songs[0], songs)
+          }
+        />
         <button className="Follow-button">Follow</button>
       </div>
 
@@ -36,8 +43,26 @@ const ArtistDetails = ({ artist, songs, onBack }) => {
             .join(", ");
 
           return (
-            <div className="song-row" key={song.id}>
-              <span>{index + 1}</span>
+            <div
+              className="song-row"
+              key={song.id}
+              onClick={() => navigate(`/song/${song.id}`)}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              style={{ cursor: "pointer" }}
+            >
+              {hoveredIndex === index ? (
+                <img
+                  src={assets.play_icon}
+                  style={{ width: "15px", marginRight: "10px" }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    playSongWithContext(song, songs);
+                  }}
+                />
+              ) : (
+                <span>{index + 1}</span>
+              )}
 
               <img src={song.image} className="song-img" />
 

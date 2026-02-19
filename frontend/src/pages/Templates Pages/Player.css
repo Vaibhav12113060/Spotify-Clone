@@ -150,20 +150,29 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
-.progress .player-right input[type="range"] {
+.progress input[type="range"],
+.player-right input[type="range"] {
   appearance: none; /* Standard */
   -webkit-appearance: none; /* Chrome, Safari, Edge */
   -moz-appearance: none; /* Firefox */
 
-  width: 100%;
   height: 4px;
   border-radius: 5px;
   cursor: pointer;
   background: transparent; /* IMPORTANT: gradient comes from inline style */
 }
 
+.progress input[type="range"] {
+  width: 100%;
+}
+
+.player-right input[type="range"] {
+  width: 100px;
+}
+
 /* Chrome / Edge / Safari */
-.progress .player-right input[type="range"]::-webkit-slider-thumb {
+.progress input[type="range"]::-webkit-slider-thumb,
+.player-right input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 12px;
   width: 12px;
@@ -172,9 +181,25 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Firefox */
-.progress .player-right input[type="range"]::-moz-range-thumb {
+.progress input[type="range"]::-moz-range-thumb,
+.player-right input[type="range"]::-moz-range-thumb {
   height: 12px;
   width: 12px;
   border-radius: 50%;
   background: white;
+}
+
+.mini-player-bar {
+  width: 60%;
+  max-width: 500px;
+  background-color: #535353;
+  height: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mini-player-fill {
+  background-color: #1db954;
+  height: 100%;
+  border-radius: 10px;
 }
